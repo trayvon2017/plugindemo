@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="com.trayvon2017.plugindemo" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>
+		plugindemo
+	</name>
+	<js-module name="plugindemo" src="www/plugindemo.js">
+		<clobbers target="cordova.plugins.plugindemo" />
+	</js-module>
+	<platform name="android">
+    <hook type="after_plugin_add" src="scripts/after_plugin_add.js" />
+		<hook type="before_plugin_rm" src="scripts/before_plugin_rm.js" />
+		<hook type="before_plugin_uninstall" src="scripts/before_plugin_uninstall.js" />
+		<hook type="after_plugin_rm" src="scripts/after_plugin_rm.js" />
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="plugindemo">
+				<param name="android-package" value="com.trayvon2017.plugindemo.plugindemo" />
+			</feature>
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml">
+		</config-file>
+		<source-file src="src/android/plugindemo.java" target-dir="src/com/trayvon2017/plugindemo/plugindemo" />
+	</platform>
+</plugin>
